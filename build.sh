@@ -66,7 +66,7 @@ fi
 #
 pushd arm-trusted-firmware || exit
 
-make \
+cmake \
     PLAT=rpi${MODEL} \
     PRELOADED_BL33_BASE=0x20000 \
     RPI3_PRELOADED_DTB_BASE=0x1F0000 \
@@ -96,7 +96,7 @@ export GCC_AARCH64_PREFIX="${CROSS_COMPILE}"
 export WORKSPACE=${PWD}
 export PACKAGES_PATH=${WORKSPACE}/edk2:${WORKSPACE}/edk2-platforms:${WORKSPACE}/edk2-non-osi
 
-make -C ${WORKSPACE}/edk2/BaseTools || exit
+cmake -C ${WORKSPACE}/edk2/BaseTools || exit
 
 source ${WORKSPACE}/edk2/edksetup.sh || exit
 
